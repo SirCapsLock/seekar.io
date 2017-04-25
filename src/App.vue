@@ -17,10 +17,10 @@
               <span></span>
             </span>
             <div class="nav-right nav-menu">
-              <router-link to="/" class="nav-item is-tab" active-class="is-active" exact>Home</router-link>
-              <router-link to="/how" class="nav-item is-tab" active-class="is-active">How it Works</router-link>
-              <router-link to="/try" class="nav-item is-tab" active-class="is-active">Try it Out</router-link>
-              <router-link to="/contact" class="nav-item is-tab" active-class="is-active">Contact</router-link>
+              <router-link to="/" class="nav-link nav-item is-tab" active-class="is-active" exact>Home</router-link>
+              <router-link to="/how" class="nav-link nav-item is-tab" active-class="is-active">How it Works</router-link>
+              <router-link to="/try" class="nav-link nav-item is-tab" active-class="is-active">Try it Out</router-link>
+              <router-link to="/contact" class="nav-link nav-item is-tab" active-class="is-active">Contact</router-link>
             </div>
           </div>
         </header>
@@ -54,6 +54,10 @@ export default {
   .nav-bar 
     background: black
     overflow: hidden
+  .nav-link
+    font-size: 1.3em
+  .nav-link:not(.is-active)
+    color: white !important
   .footer
     background-color: black
     color: white

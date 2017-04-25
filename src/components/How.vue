@@ -45,7 +45,9 @@
             </div>
 
             <div class="column">
-                No really!
+                <div class="image is4by3">
+                    <img src="images/phone-mockups.jpg" alt="">
+                </div>
             </div>
 
         </div>
