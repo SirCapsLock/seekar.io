@@ -1,72 +1,89 @@
 <template>
 
-  <section class="hero is-default">
-    <div class="hero-head nav-bar">
-      <div class="container">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a class="" href="../index.html">
-                <img src="./assets/logo.png" alt="Description">
-                <br>
-              </a>
-            </div>
-            <span class="nav-toggle" :class="{ 'is-active': mobileNavActive }" @click="mobileNavActive = !mobileNavActive">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavActive }">
-              <router-link to="/" class="nav-link nav-item is-tab" exact @click.native="hideNav">Home</router-link>
-              <router-link to="/how" class="nav-link nav-item is-tab" @click.native="hideNav">How it Works</router-link>
-              <router-link to="/try" class="nav-link nav-item is-tab" @click.native="hideNav">Try it Out</router-link>
-              <router-link to="/contact" class="nav-link nav-item is-tab" @click.native="hideNav">Contact</router-link>
-            </div>
-          </div>
-        </header>
+  <div>
+    <nav class="nav" id="mainMenu">
+      <div class="nav-right">
+        <a data-menuanchor="home" href="#home" class="nav-item nav-link">Home</a>
+        <a data-menuanchor="how" href="#how" class="nav-item nav-link">How it Works</a>
+        <a data-menuanchor="try" href="#try" class="nav-item nav-link">Try it Out</a>
+        <a data-menuanchor="contact" href="#contact" class="nav-item nav-link">Contact Us</a>
+      </div>
+    </nav>
+    <div id="fullpage">
+      <div class="section">
+        <Home/>
+      </div>
+      <div class="section">
+        <How/>
+      </div>
+      <div class="section">
+        <Try/>
+      </div>
+      <div class="section">
+        <Contact/>
       </div>
     </div>
+  </div>
 
-    <div class="hero-body">
-      <div class="container">
-        <transition name="slide-left" mode="out-in">
-          <router-view class="view" default="/" transition="slide-left" key="hello"></router-view>
-        </transition>
-      </div>
-    </div>
-
-  </section>
 
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      transitionName: "slide-left",
-      mobileNavActive: false
-    }
-  },
-  methods: {
-    hideNav() {
-      this.mobileNavActive = false;
+
+  import Home from './components/Home'
+  import How from './components/How'
+  import Try from './components/Try'
+  import Contact from './components/Contact'
+  import Get from './components/Get'
+
+
+  export default {
+    name: 'app',
+    components: { Home, How, Try, Contact, Get },
+    data () {
+      return {
+        transitionName: "fade",
+        mobileNavActive: false
+      }
+    },
+    methods: {
+      hideNav() {
+        this.mobileNavActive = false;
+      }
     }
   }
-}
+
+  $(document).ready(function () {
+    $('#fullpage').fullpage({
+      anchors: ['home', 'how', 'try', 'contact', 'get'],
+      menu: '#mainMenu',
+      fixedElements: '#mainMenu',
+      css3: true
+    });
+  });
+
 </script>
 
 <style lang="sass">
+  #mainMenu 
+    position: fixed
+    top: 0px
+    display: block
+    width: 100%
+    background: #000
+    
+
   .nav-toggle span
     background-color: #FFF
   .nav-toggle:hover
     background-color: #000
-  .nav-item
-    background: #000
-  .nav-bar 
-    background: #000
+  a.nav-item:hover 
+    color: #fff
   .nav-link
     font-size: 1.3em
-  .nav-link:not(.is-active)
-    color: white !important
+    display: block
+  .nav-link.active
+    border-left: 3px #14b5eb
+    color: #ccc
+  
 </style>

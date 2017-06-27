@@ -23,10 +23,10 @@
                     </div>
                     <div class="column is-10">
                         <h2 class="title">Download the App</h2>
-                        <a href="">
+                        <a href="https://itunes.apple.com/us/app/seekar-augmented-reality/id1229263706">
                             <img src="images/apple-badge-web-sized.png" alt="">
                         </a>
-                        <a href="">
+                        <a href="https://play.google.com/store/apps/details?id=com.catharsis.SeekAR">
                             <img src="images/play-badge-web-sized.png" alt="">
                         </a>
                     </div>
