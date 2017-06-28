@@ -13,7 +13,9 @@ let mix = require('laravel-mix');
 
 mix.js('src/main.js', 'dist/main.js')
    .sass('src/sass/app.scss', 'dist/style.css')
-   .copy('src/css/style.css', 'dist/extra-style.css');
+   .copy('src/css/style.css', 'dist/extra-style.css')
+   .copy('src/js/fullpage/scrolloverflow.min.js', 'dist/scrolloverflow.min.js')
+   .disableNotifications();
 
 // Full API
 // mix.js(src, output);

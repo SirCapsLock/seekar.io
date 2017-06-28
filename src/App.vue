@@ -54,12 +54,20 @@
   }
 
   $(document).ready(function () {
-    $('#fullpage').fullpage({
-      anchors: ['home', 'how', 'try', 'contact', 'get'],
-      menu: '#mainMenu',
-      fixedElements: '#mainMenu',
-      css3: true
-    });
+    /* 
+      Initialize Fullpage.js. 
+      Do not initialize on mobile devices.
+    */
+
+    if($(window).width() > 765)
+    {
+      $('#fullpage').fullpage({
+        anchors: ['home', 'how', 'try', 'contact', 'get'],
+        menu: '#mainMenu',
+        fixedElements: '#mainMenu',
+        css3: true
+      });
+    }
   });
 
 </script>
